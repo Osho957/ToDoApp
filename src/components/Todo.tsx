@@ -33,7 +33,7 @@ export default function Todo() {
 
   return (
    <>
-   <h2 className="heading">Kha Jao App</h2>
+   <h2 className="heading">Todo App</h2>
     <input className="container" placeholder="Enter Your Notes Here" type="text" value={value} onChange={(e)=>(setValue(e.target.value))}/>
    <div className="btn_holder">
    <button className="btn" 
