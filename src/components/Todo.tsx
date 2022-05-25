@@ -35,10 +35,13 @@ export default function Todo() {
    <>
    <h2 className="heading">Todo App</h2>
     <input className="container" placeholder="Enter Your Notes Here" type="text" value={value} onChange={(e)=>(setValue(e.target.value))}/>
-    <button className="btn" 
+   <div className="btn_holder">
+   <button className="btn" 
     onClick={()=>{
     setValue("");
     setList([...list,value])}}>Add Notes</button>
+   </div>
+
     {list.map((x,i)=>updateIndex===i ? renderUpdateItem(i):renderListItem(x,i))}
    </>
   )
