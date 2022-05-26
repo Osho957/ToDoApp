@@ -6,6 +6,7 @@ export default function Todo() {
     const [value,setValue] = useState<string>("");
     const [updateIndex ,setUpdateIndex] = useState<number | undefined>();
     const [updateText,setUpdateText] = useState<string>("");
+    const [searchText,setSearchText] = useState<string>("");
 
     function renderListItem(listItem:string , index:number) {
        return( 
@@ -42,9 +43,18 @@ export default function Todo() {
     setList([...list,value])}}>Add Notes</button>
    </div>
 
-    {list.map((x,i)=>updateIndex===i ? renderUpdateItem(i):renderListItem(x,i))}
+   <input className="container" type="text" placeholder="Search For Notes Here" value={searchText} onChange={(e)=>(setSearchText(e.target.value))}/>
+
+    {list.map(renderFilteredItems)}
    </>
   )
+
+  function renderFilteredItems(listItem: string, index: number){
+    if(listItem.toLowerCase().includes(searchText.toLowerCase())){
+     return updateIndex===index ? renderUpdateItem(index):renderListItem(listItem,index);
+    }
+    return;
+  }
 
 
 function onUpdate( index:number){
