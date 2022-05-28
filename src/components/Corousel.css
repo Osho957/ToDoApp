@@ -1,0 +1,8 @@
+.img_container{
+    display: flex;
+    justify-content: center;
+}
+
+.btn_container{
+    margin-left: 45%;
+}
